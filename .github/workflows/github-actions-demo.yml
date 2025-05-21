@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo ${{ github.event }}
-      - run: echo ${{ github.ref }}
-      - run: tree .
+      - run: echo ${{ github.event_name }}
+      - run: echo ${{ github.ref_name }}
+      - run: tree -a .
     
 
