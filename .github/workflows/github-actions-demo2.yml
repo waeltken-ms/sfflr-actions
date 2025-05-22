@@ -27,4 +27,4 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            az account show
+            az vm create -n DemoVm -g images-test-rg --image Ubuntu2204
