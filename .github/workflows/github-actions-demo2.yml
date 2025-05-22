@@ -28,4 +28,4 @@ jobs:
           azcliversion: latest
           inlineScript: |
             az group create -n images-test-rg --location westeurope
-            az vm create -n DemoVm -g images-test-rg --image Ubuntu2204
+            az vm create -n DemoVm -g images-test-rg --image Ubuntu2204 --generate-ssh-keys
