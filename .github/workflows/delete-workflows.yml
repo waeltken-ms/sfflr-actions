@@ -6,6 +6,12 @@ jobs:
   do:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/tree
+        with:
+          height: 40
+          trunkWidth: 8
+          trunkHeight: 4
       - name: Delete workflow runs
         uses: Mattraks/delete-workflow-runs@v2.0.3
         with:
