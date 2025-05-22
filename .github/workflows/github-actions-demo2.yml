@@ -19,3 +19,7 @@ jobs:
       - run: echo ${{ github.ref_name }}
       - run: tree -a .
       - uses: ./.github/actions/tree
+        with:
+          height: 40
+          trunkWidth: 8
+          trunkHeight: 4
