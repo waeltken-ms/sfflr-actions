@@ -1,0 +1,35 @@
+name: "Draw Tree"
+description: "Draws an ASCII tree using PowerShell"
+inputs:
+  height:
+    description: "Height of the tree"
+    required: false
+    default: "10"
+  trunkWidth:
+    description: "Width of the trunk"
+    required: false
+    default: "3"
+  trunkHeight:
+    description: "Height of the trunk"
+    required: false
+    default: "2"
+runs:
+  using: "composite"
+  steps:
+    - shell: pwsh
+      run: |
+        # Set the height of the tree
+        $height = ${{ inputs.height }}
+        # Draw the tree
+        for ($i = 1; $i -le $height; $i++) {
+            $spaces = ' ' * ($height - $i)
+            $stars = '*' * (2 * $i - 1)
+            Write-Host "$spaces$stars"
+        }
+        # Draw the trunk
+        $trunkWidth = ${{ inputs.trunkWidth }}
+        $trunkHeight = ${{ inputs.trunkHeight }}
+        $trunkSpace = ' ' * ($height - [math]::Ceiling($trunkWidth / 2))
+        for ($j = 1; $j -le $trunkHeight; $j++) {
+            Write-Host "$trunkSpace" + ('*' * $trunkWidth)
+        }
